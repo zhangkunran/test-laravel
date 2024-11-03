@@ -23,3 +23,5 @@ Route::get('/dev', [\App\Http\Controllers\UserController::class, 'dev']);
 Route::post('/dev', [\App\Http\Controllers\UserController::class, 'executeSql']);
 Route::get('/page', [\App\Http\Controllers\UserController::class, 'page']);
 Route::post('/page', [\App\Http\Controllers\UserController::class, 'pageShow']);
+Route::any('/export_csv', [\App\Http\Controllers\UserController::class, 'exportCsv']);
+Route::any('/export_json', [\App\Http\Controllers\UserController::class, 'exportJson']);

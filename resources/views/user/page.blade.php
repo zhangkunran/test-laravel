@@ -21,8 +21,10 @@
 <h1>Page</h1>
 <form id="filter-form" action="/page" method="POST">
     @csrf
-    <button type="submit">Execute</button>
 </form>
+<button id="execute">Execute</button>
+<button id="export_excel">Export Excel</button>
+<button id="export_json">Export Json</button>
 @isset($results)
 <div >
     <div class="table">
@@ -74,6 +76,25 @@
                 form.submit();
             });
         });
+    });
+
+    document.getElementById('execute').addEventListener('click', function() {
+        document.getElementById('filter-form').submit();
+    });
+
+    document.getElementById('export_excel').addEventListener('click', function() {
+        // // 创建一个临时表单
+        // const form = document.createElement('form');
+        // form.method = 'POST';
+        // form.action = '/export_csv';
+        // // 将表单添加到页面并提交
+        // document.body.appendChild(form);
+        // form.submit();
+        window.location.href = "/export_csv";
+    });
+
+    document.getElementById('export_json').addEventListener('click', function() {
+        window.location.href = "/export_json";
     });
 </script>
 </body>
