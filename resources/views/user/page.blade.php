@@ -19,6 +19,16 @@
 </head>
 <body>
 <h1>Page</h1>
+<!-- 显示任何错误信息 -->
+@if ($errors->any())
+    <div style="color: red;">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form id="filter-form" action="/page" method="POST">
     @csrf
 </form>

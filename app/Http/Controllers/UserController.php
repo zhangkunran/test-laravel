@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\QueryException;
 
 class UserController extends Controller
 {
@@ -48,9 +49,14 @@ class UserController extends Controller
      */
     public function pageShow()
     {
-        $results = (new User())->getItemPage(5);
+        try {
+            $results = (new User())->getItemPage(5);
+        } catch (QueryException $e) {
+            // 捕获并显示错误信息
+            return back()->withErrors(['error' => $e->getMessage()]);
+        }
         // 将结果返回给视图
-        return view('user.page', ['results' => $results]);
+        return view('user.page', ['results' => $results ?? []]);
     }
 
     /**
