@@ -17,4 +17,9 @@ class ModelBase extends Model
     {
         return self::query()->get()->toArray();
     }
+
+    public function getItemPage(int $limit = 10)
+    {
+        return self::query()->paginate($limit);
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Validate\User\ReqPostExecuteSql;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -29,6 +30,19 @@ class UserController extends Controller
             return back()->withErrors(['error' => $e->getMessage()]);
         }
         // 将结果返回给视图
-        return view('dev', ['results' => $results]);
+        return view('user.dev');
+    }
+
+    public function page()
+    {
+        // 视图
+        return view('user.page');
+    }
+
+    public function pageShow()
+    {
+        $results = DB::table('user')->paginate(5);
+        // 将结果返回给视图
+        return view('user.page', ['results' => $results]);
     }
 }

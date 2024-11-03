@@ -21,3 +21,5 @@ Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->
 Route::get('/not_permission', [\App\Http\Controllers\UserController::class, 'notPermission']);
 Route::get('/dev', [\App\Http\Controllers\UserController::class, 'dev']);
 Route::post('/dev', [\App\Http\Controllers\UserController::class, 'executeSql']);
+Route::get('/page', [\App\Http\Controllers\UserController::class, 'page']);
+Route::post('/page', [\App\Http\Controllers\UserController::class, 'pageShow']);
