@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 Route::get('/login', [\App\Http\Controllers\LoginController::class, 'index']);
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::get('/dev', [\App\Http\Controllers\UserController::class, 'dev']);
+Route::get('/not_permission', [\App\Http\Controllers\UserController::class, 'notPermission']);
