@@ -126,6 +126,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'sql' => [
+            'driver' => 'monolog',
+            'handler' => \App\Logging\DatabaseHandler::class,
+            'connection' => 'mysql',
+        ],
     ],
 
 ];
