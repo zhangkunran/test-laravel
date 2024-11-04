@@ -103,4 +103,9 @@ class UserController extends Controller
         echo $jsonData;
         exit;
     }
+
+    public function onlySelect()
+    {
+        return view('user.only_select');
+    }
 }
